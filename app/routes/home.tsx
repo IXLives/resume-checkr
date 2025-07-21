@@ -16,7 +16,7 @@ export default function Home() {
     <main className="bg-[url('/images/bg-main.svg')] bg-cover">
       <Navbar />
       <section className="main-section">
-        <div className="page-heading">
+        <div className="page-heading py-16">
           <h1>Track Your Applications</h1>
           <h2>Review your submissions and get AI-powered feedback.</h2>
         </div>
