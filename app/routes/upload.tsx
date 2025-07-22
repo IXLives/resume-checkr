@@ -5,8 +5,26 @@ import Navbar from "~/components/Navbar";
 const upload = () => {
   const [isProcessing, setIsProcessing] = useState(false);
   const [statusText, setStatusText] = useState("");
+  const [file, setFile] = useState<File | null>(null);
+
+  const handleFileSelect = (file: File | null) => {
+    setFile(file);
+    // if (file) {
+    //   setIsProcessing(true);
+    //   setStatusText("Processing your resume...");
+    //   // Simulate processing delay
+    //   setTimeout(() => {
+    //     setIsProcessing(false);
+    //     setStatusText("Analysis complete! Check your results.");
+    //   }, 3000); // Simulate a 3-second processing time
+    // } else {
+    //   setIsProcessing(false);
+    //   setStatusText("");
+    // }
+  }
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {};
+
   return (
     <main className="bg-[url('/images/bg-main.svg')] bg-cover">
       <Navbar />
@@ -59,7 +77,7 @@ const upload = () => {
               </div>
               <div className="form-div">
                 <label htmlFor="uploader">Upload Resume</label>
-                <FileUploader />
+                <FileUploader onFileSelect={handleFileSelect} />
               </div>
               <button className="primary-button" type="submit">
                 Analyze Resume
